@@ -10,13 +10,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
 import { ChevronDownIcon } from "lucide-react";
 import Link from "next/link";
-import { DROPDOWN_ROUTES } from "../constants/routes";
+import { DROPDOWN_ROUTES, ROUTES } from "../constants/routes";
 
 function Nav() {
   return (
     <div className="w-full flex justify-between items-center p-4 gap-2">
       {/* Logo */}
-      <h1 className="text-2xl font-bold">Informed</h1>
+      <Link href={ROUTES.home}>
+        <h1 className="text-2xl font-bold">Informed</h1>
+      </Link>
 
       {/* Searchbar */}
       <Searchbar placeholder="Search" iconPosition="left" className="w-2/3" />
