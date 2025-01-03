@@ -14,7 +14,8 @@ export const Searchbar = ({
   className,
 }: SearchbarProps) => {
   return (
-    <div
+    // TODO: Server Action 추가
+    <form
       className={cn(
         `flex items-center gap-2 px-2 border border-gray-200 rounded-md w-full has-[:focus]:border-gray-500,`,
         iconPosition === "right" && "flex-row-reverse",
@@ -33,6 +34,6 @@ export const Searchbar = ({
           boxShadow: "none",
         }}
       />
-    </div>
+    </form>
   );
 };
