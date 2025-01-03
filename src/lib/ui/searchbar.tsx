@@ -5,14 +5,20 @@ import { SearchIcon } from "lucide-react";
 export type SearchbarProps = {
   placeholder: string;
   iconPosition: "left" | "right";
+  className?: string;
 };
 
-export const Searchbar = ({ placeholder, iconPosition }: SearchbarProps) => {
+export const Searchbar = ({
+  placeholder,
+  iconPosition,
+  className,
+}: SearchbarProps) => {
   return (
     <div
       className={cn(
-        `flex items-center gap-2 px-2 border border-gray-200 rounded-md w-full has-[:focus]:border-gray-500`,
-        iconPosition === "right" && "flex-row-reverse"
+        `flex items-center gap-2 px-2 border border-gray-200 rounded-md w-full has-[:focus]:border-gray-500,`,
+        iconPosition === "right" && "flex-row-reverse",
+        className
       )}
     >
       <label htmlFor="search">
