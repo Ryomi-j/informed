@@ -33,9 +33,7 @@ export function NewsCard({ category }: { category: string }) {
       </CardContent>
       <CardFooter>
         <Link href="/">
-          <Button className="bg-transparent text-black shadow-none border hover:text-white  hover:bg-black">
-            자세히 보기 →
-          </Button>
+          <Button variant="outline">자세히 보기 →</Button>
         </Link>
       </CardFooter>
     </Card>
