@@ -41,7 +41,7 @@ function Nav() {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             {Object.entries(DROPDOWN_ROUTES).map(([key, value]) => (
-              <DropdownMenuItem>
+              <DropdownMenuItem key={key}>
                 <Link href={value} className="font-medium">
                   {key}
                 </Link>
