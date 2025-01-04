@@ -12,7 +12,10 @@ export default function NoticeItem() {
             <h4 className="font-bold">{category}</h4>
             <div className="flex flex-col gap-4">
               {content.map(({ title, subTitle, description }) => (
-                <div className="flex items-center justify-between">
+                <div
+                  key={subTitle}
+                  className="flex items-center justify-between"
+                >
                   <label htmlFor={subTitle} className="flex flex-col gap-1">
                     <p className="text-base font-bold">{title}</p>
                     <div className="text-gray-500">{description}</div>

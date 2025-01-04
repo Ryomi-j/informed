@@ -1,4 +1,3 @@
-import { DropdownMenuSeparator } from "@/lib/ui/dropdown-menu";
 import { Switch } from "@/lib/ui/switch";
 import { BellIcon } from "lucide-react";
 import {
