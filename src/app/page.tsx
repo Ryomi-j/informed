@@ -4,7 +4,8 @@ import { CategoryTabs } from "@/lib/components/categoryTabs";
 import { TabContent } from "@/lib/components/tabContent";
 import { Tabs } from "@/lib/ui/tabs";
 import { Button } from "@/lib/ui/button";
-import { RefreshCwIcon } from "lucide-react";
+import { RefreshCwIcon, SettingsIcon } from "lucide-react";
+import Link from "next/link";
 
 export default async function Home(props: {
   searchParams: Promise<{ category: string }>;
@@ -34,6 +35,11 @@ export default async function Home(props: {
           </Suspense>
         </div>
       </Tabs>
+      <Link href="/settings" className="fixed bottom-4 right-10 w-8 h-8">
+        <Button>
+          <SettingsIcon className="w-4 h-4" />
+        </Button>
+      </Link>
     </Fragment>
   );
 }
