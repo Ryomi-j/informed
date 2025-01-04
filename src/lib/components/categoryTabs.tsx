@@ -18,7 +18,7 @@ export function CategoryTabs({
               "w-full pb-2",
               selectedCategory === category
                 ? "text-black border-b-4 border-black"
-                : "text-gray-300"
+                : "text-gray-500"
             )}
           >
             {DEFAULT_CATEGORY[category as keyof typeof DEFAULT_CATEGORY]}
