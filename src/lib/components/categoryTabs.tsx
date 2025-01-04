@@ -9,15 +9,15 @@ export function CategoryTabs({
   selectedCategory: string;
 }) {
   return (
-    <TabsList className="flex gap-5">
+    <TabsList className="flex gap-5 max-w-screen-xl mx-auto">
       {Object.keys(DEFAULT_CATEGORY).map((category) => (
         <Link href={`?category=${category}`} key={category} className="w-fit">
           <TabsTrigger
             value={category}
             className={clsx(
-              "w-full",
+              "w-full pb-2",
               selectedCategory === category
-                ? "text-black border-b-2 border-black"
+                ? "text-black border-b-4 border-black"
                 : "text-gray-300"
             )}
           >

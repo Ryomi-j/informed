@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={clsx(
-          "flex flex-col justify-between min-h-screen max-w-screen-xl mx-auto antialiased",
+          "flex flex-col justify-between min-h-screen antialiased bg-gray-100",
           geistSans.variable,
           geistMono.variable
         )}

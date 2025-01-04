@@ -14,8 +14,13 @@ export default async function Home(props: {
 
   return (
     <Fragment>
-      <Tabs defaultValue="account" className="w-full p-4">
-        <CategoryTabs selectedCategory={category} />
+      <Tabs
+        defaultValue={DEFAULT_CATEGORY.technology}
+        className="w-full"
+      >
+        <div className="w-full bg-white">
+          <CategoryTabs selectedCategory={category} />
+        </div>
         <Suspense fallback={<div>Loading...</div>}>
           <TabContent category={category} />
         </Suspense>
