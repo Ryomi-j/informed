@@ -21,7 +21,7 @@ export function CategoryTabs({
             className="w-fit min-w-fit"
           >
             <TabsTrigger
-              value={value}
+              value={category}
               className={clsx(
                 "w-full pb-2",
                 selectedCategory === category
