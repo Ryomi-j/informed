@@ -12,6 +12,7 @@ import Link from "next/link";
 import { DROPDOWN_ROUTES, ROUTES } from "../constants/routes";
 
 function Nav() {
+  const SEARCHBAR_PLACEHOLDER = "검색어를 입력해주세요.";
   return (
     <div className="bg-white">
       <div className="w-full max-w-screen-xl mx-auto flex justify-between items-center p-4 gap-2">
@@ -21,7 +22,11 @@ function Nav() {
         </Link>
 
         {/* Searchbar */}
-        <Searchbar placeholder="Search" iconPosition="left" className="w-2/3" />
+        <Searchbar
+          placeholder={SEARCHBAR_PLACEHOLDER}
+          iconPosition="left"
+          className="w-2/3"
+        />
 
         {/* User Dropdown Menu */}
         <DropdownMenu>
