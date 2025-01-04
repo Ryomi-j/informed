@@ -1,14 +1,13 @@
-import { Searchbar } from "./searchbar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/lib/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
 import { ChevronDownIcon } from "lucide-react";
+import { Searchbar } from "./searchbar";
 import Link from "next/link";
 import { DROPDOWN_ROUTES, ROUTES } from "../constants/routes";
 

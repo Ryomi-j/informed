@@ -1,5 +1,5 @@
 import { cn } from "../utils";
-import { Input } from "./input";
+import { Input } from "../ui/input";
 import { SearchIcon } from "lucide-react";
 
 export type SearchbarProps = {
