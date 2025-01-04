@@ -13,7 +13,6 @@ export function CategoryTabs({
       {Object.keys(DEFAULT_CATEGORY).map((category) => (
         <Link href={`?category=${category}`} key={category} className="w-fit">
           <TabsTrigger
-            key={category}
             value={category}
             className={clsx(
               "w-full",
