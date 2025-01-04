@@ -10,17 +10,18 @@ export function CategoryTabs({
 }: {
   selectedCategory: string;
 }) {
+  console.log(selectedCategory);
   return (
     <ScrollArea className="w-full max-w-screen-xl mx-auto">
       <TabsList className="flex gap-5">
-        {Object.keys(DEFAULT_CATEGORY).map((category) => (
+        {Object.entries(DEFAULT_CATEGORY).map(([category, value]) => (
           <Link
             href={`?category=${category}`}
             key={category}
             className="w-fit min-w-fit"
           >
             <TabsTrigger
-              value={category}
+              value={value}
               className={clsx(
                 "w-full pb-2",
                 selectedCategory === category
@@ -28,7 +29,7 @@ export function CategoryTabs({
                   : "text-gray-500"
               )}
             >
-              {DEFAULT_CATEGORY[category as keyof typeof DEFAULT_CATEGORY]}
+              {value}
             </TabsTrigger>
           </Link>
         ))}
