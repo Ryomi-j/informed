@@ -1,8 +1,8 @@
 export const ROUTES = {
-  home: "/",
-  profile: "/profile",
-  notifications: "/notifications",
-  keywords: "/keywords",
+  HOME: "/",
+  PROFILE: "/profile",
+  NOTIFICATIONS: "/notifications",
+  KEYWORDS: "/keywords",
 };
 
 export const DROPDOWN_ROUTES = {

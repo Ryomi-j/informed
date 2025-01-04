@@ -16,7 +16,7 @@ function Nav() {
   return (
     <div className="w-full flex justify-between items-center p-4 gap-2">
       {/* Logo */}
-      <Link href={ROUTES.home}>
+      <Link href={ROUTES.HOME}>
         <h1 className="text-2xl font-bold">Informed</h1>
       </Link>
 
@@ -44,7 +44,7 @@ function Nav() {
           ))}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Link href="/">Logout</Link>
+            <Link href={ROUTES.HOME}>Logout</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
