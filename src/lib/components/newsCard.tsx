@@ -15,7 +15,12 @@ export function NewsCard({ category }: { category: string }) {
   return (
     <Card className="w-[400px] h-[396px]">
       <CardHeader>
-        <Image src="" alt={`${category} news item`} width={400} height={198} />
+        <Image
+          src="/article.png"
+          alt={`${category} news item`}
+          width={400}
+          height={198}
+        />
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <div className="flex items-center gap-2 text-gray-500">
