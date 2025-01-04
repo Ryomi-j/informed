@@ -1,4 +1,5 @@
 export const DEFAULT_CATEGORY = {
+  all: "전체",
   technology: "테크놀로지",
   science: "과학",
   health: "건강",
