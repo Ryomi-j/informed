@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import clsx from "clsx";
 import Nav from "@/lib/components/nav";
 import { Footer } from "@/lib/components/footer";
@@ -28,7 +28,9 @@ export default function RootLayout({
           geistMono.variable
         )}
       >
-        {children}
+        <Nav />
+        <main className="grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
