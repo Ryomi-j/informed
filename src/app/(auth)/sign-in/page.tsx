@@ -1,4 +1,4 @@
-import { SignInForm } from "@/lib/components/form/SignIn";
+import { SignInForm } from "@/lib/components/form/signIn";
 import { Button } from "@/lib/ui/button";
 import {
   Card,
