@@ -4,7 +4,7 @@ import { MailIcon } from "lucide-react";
 import { Label } from "@/lib/ui/label";
 import { LockIcon } from "lucide-react";
 
-export const LoginForm = () => {
+export const SignInForm = () => {
   const EMAIL_PLACEHOLDER = "이메일을 입력하세요";
   const PASSWORD_PLACEHOLDER = "비밀번호를 입력하세요";
 

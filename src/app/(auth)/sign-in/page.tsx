@@ -1,4 +1,4 @@
-import { LoginForm } from "@/lib/components/form/login";
+import { SignInForm } from "@/lib/components/form/SignIn";
 import { Button } from "@/lib/ui/button";
 import {
   Card,
@@ -22,7 +22,7 @@ export default function SignIn() {
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center px-8 py-10 w-full rounded-lg bg-white">
         {/* login form */}
-        <LoginForm />
+        <SignInForm />
 
         {/* social login */}
         <section className="flex flex-col gap-4 w-full pt-6">
