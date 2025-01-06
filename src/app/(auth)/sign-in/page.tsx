@@ -11,7 +11,7 @@ import { Separator } from "@/lib/ui/separator";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Login() {
+export default function SignIn() {
   return (
     <Card className="min-w-[448px] bg-transparent border-none shadow-none">
       <CardHeader className="flex flex-col items-center justify-center">
