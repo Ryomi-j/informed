@@ -1,5 +1,5 @@
 import { Button } from "@/lib/ui/button";
-import { DropdownMenuSeparator } from "@/lib/ui/dropdown-menu";
+import { Separator } from "@/lib/ui/separator";
 import { Input } from "@/lib/ui/input";
 import { Switch } from "@/lib/ui/switch";
 import { BellIcon, BellOffIcon, PlusIcon, Trash2Icon } from "lucide-react";
@@ -64,7 +64,7 @@ export default function KeywordPage() {
                 </Button>
               </div>
             </div>
-            <DropdownMenuSeparator />
+            <Separator />
           </div>
         ))}
       </form>
