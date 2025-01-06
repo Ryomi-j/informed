@@ -1,4 +1,4 @@
-import { cn } from "../utils";
+import { cn } from "../utils/style";
 import { Input } from "../ui/input";
 import { SearchIcon } from "lucide-react";
 
