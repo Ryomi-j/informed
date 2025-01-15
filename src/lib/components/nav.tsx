@@ -11,14 +11,20 @@ import { ChevronDownIcon } from "lucide-react";
 import { Searchbar } from "./searchbar";
 import Link from "next/link";
 import { DROPDOWN_ROUTES, ROUTES } from "../constants/routes";
-import { signOut } from "@/auth";
+import { auth, signOut } from "@/auth";
+import { redirect } from "next/navigation";
 
-function Nav() {
+async function Nav() {
+  const session = await auth();
+  const isAuthenticated = !!session?.user;
+
+  const SEARCHBAR_PLACEHOLDER = "검색어를 입력해주세요.";
   const sign_out = async () => {
     "use server";
     await signOut();
+
+    redirect(ROUTES.HOME);
   };
-  const SEARCHBAR_PLACEHOLDER = "검색어를 입력해주세요.";
 
   return (
     <div className="bg-white">
@@ -34,34 +40,39 @@ function Nav() {
           iconPosition="left"
           className="w-2/3"
         />
-
         {/* User Dropdown Menu */}
-        <DropdownMenu>
-          <DropdownMenuTrigger className="group flex items-center gap-2 focus:outline-none">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              {/* TODO: 사용자 이미지 없을 때 대체 텍스트 수정 */}
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <p className="text-sm font-medium">Angela</p>
-            <ChevronDownIcon className="w-4 h-4 text-gray-500 group-data-[state=open]:rotate-180 transition-transform duration-200" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            {Object.entries(DROPDOWN_ROUTES).map(([key, value]) => (
-              <DropdownMenuItem key={key}>
-                <Link href={value} className="font-medium">
-                  {key}
-                </Link>
+        {isAuthenticated ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger className="group flex items-center gap-2 focus:outline-none">
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                {/* TODO: 사용자 이미지 없을 때 대체 텍스트 수정 */}
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <p className="text-sm font-medium">Angela</p>
+              <ChevronDownIcon className="w-4 h-4 text-gray-500 group-data-[state=open]:rotate-180 transition-transform duration-200" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {Object.entries(DROPDOWN_ROUTES).map(([key, value]) => (
+                <DropdownMenuItem key={key}>
+                  <Link href={value} className="font-medium">
+                    {key}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <form action={sign_out}>
+                  <Button>Logout</Button>
+                </form>
               </DropdownMenuItem>
-            ))}
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <form action={sign_out}>
-                <Button>Logout</Button>
-              </form>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        ) : (
+          <Link href={ROUTES.SIGN_IN}>
+            <Button>Login</Button>
+          </Link>
+        )}
       </div>
     </div>
   );

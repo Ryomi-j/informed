@@ -3,6 +3,7 @@ export const ROUTES = {
   PROFILE: "/profile",
   NOTIFICATIONS: "/notifications",
   KEYWORDS: "/keywords",
+  SIGN_IN: "/sign-in",
 };
 
 export const DROPDOWN_ROUTES = {
