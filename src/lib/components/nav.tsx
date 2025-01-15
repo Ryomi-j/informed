@@ -6,13 +6,20 @@ import {
   DropdownMenuTrigger,
 } from "@/lib/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/lib/ui/avatar";
+import { Button } from "@/lib/ui/button";
 import { ChevronDownIcon } from "lucide-react";
 import { Searchbar } from "./searchbar";
 import Link from "next/link";
 import { DROPDOWN_ROUTES, ROUTES } from "../constants/routes";
+import { signOut } from "@/auth";
 
 function Nav() {
+  const sign_out = async () => {
+    "use server";
+    await signOut();
+  };
   const SEARCHBAR_PLACEHOLDER = "검색어를 입력해주세요.";
+
   return (
     <div className="bg-white">
       <div className="w-full max-w-screen-xl mx-auto flex justify-between items-center p-4 gap-2">
@@ -49,7 +56,9 @@ function Nav() {
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={ROUTES.HOME}>Logout</Link>
+              <form action={sign_out}>
+                <Button>Logout</Button>
+              </form>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
