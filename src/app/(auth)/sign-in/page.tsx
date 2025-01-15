@@ -60,7 +60,7 @@ export default function SignIn() {
             </Button>
           </div>
           <div className="flex justify-between mt-6 text-center text-sm">
-            <Link href="/signup">회원가입</Link>
+            <Link href="/sign-up">회원가입</Link>
             <Link href="/forgot-password">비밀번호를 잊으셨나요?</Link>
           </div>
         </section>
