@@ -1,4 +1,8 @@
+"use client";
+
+import { signIn } from "next-auth/react";
 import { SignInForm } from "@/lib/components/form/signIn";
+import { ROUTES } from "@/lib/constants/routes";
 import { Button } from "@/lib/ui/button";
 import {
   Card,
@@ -12,6 +16,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function SignIn() {
+  const handleGoogleSignIn = async () => {
+    try {
+      await signIn("google", {
+        callbackUrl: ROUTES.HOME,
+        redirect: true,
+      });
+    } catch (error) {
+      console.error("Google sign in error:", error);
+    }
+  };
+
   return (
     <Card className="min-w-[448px] bg-transparent border-none shadow-none">
       <CardHeader className="flex flex-col items-center justify-center">
@@ -34,7 +49,11 @@ export default function SignIn() {
             <Separator className="w-1/3" />
           </div>
           <div className="flex gap-2">
-            <Button variant="outline" className="w-full px-3 py-4">
+            <Button
+              onClick={handleGoogleSignIn}
+              variant="outline"
+              className="w-full px-3 py-4"
+            >
               <Image
                 src="/login/google.svg"
                 alt="google login"
