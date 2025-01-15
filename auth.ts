@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession } from "next-auth";
 import { authConfig } from "./auth.config";
 import Google from "next-auth/providers/google";
 import Apple from "next-auth/providers/apple";
@@ -8,7 +8,7 @@ import { sql } from "@vercel/postgres";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 
-async function getUser(email: string) {
+export const getUser = async (email: string) => {
   try {
     const user = await sql`
       SELECT * FROM users 
@@ -20,10 +20,38 @@ async function getUser(email: string) {
   } catch (error) {
     throw new Error("Failed to fetch user.");
   }
+};
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      provider: string;
+    } & DefaultSession["user"];
+  }
 }
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
+  callbacks: {
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        return {
+          ...token,
+          provider: account.provider,
+        };
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          provider: token.provider,
+        },
+      };
+    },
+  },
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -39,24 +67,23 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
     Credentials({
       async authorize(credentials) {
-        const parsedCredentials = z
-          .object({
-            email: z.string().email(),
-            password: z.string().min(8),
-          })
-          .safeParse(credentials);
-
-        if (!parsedCredentials.success) {
-          return null;
-        }
-
         try {
+          const parsedCredentials = z
+            .object({
+              email: z.string().email(),
+              password: z.string().min(8),
+            })
+            .safeParse(credentials);
+
+          if (!parsedCredentials.success) return null;
+
           const { email, password } = parsedCredentials.data;
           const user = await getUser(email);
 
           if (!user) return null;
 
           const passwordsMatch = await bcrypt.compare(password, user.password);
+
           if (!passwordsMatch) return null;
 
           return {
