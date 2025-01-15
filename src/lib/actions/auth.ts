@@ -98,6 +98,7 @@ export const signUp = async (prevState: State, formData: FormData) => {
       redirect: false,
     });
   } catch (error) {
+    console.error(error);
     return { message: "Database Error: Failed to create user." };
   }
 

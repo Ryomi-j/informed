@@ -13,6 +13,7 @@ export const GET = async () => {
     return Response.json({ message: "Database initialized successfully" });
   } catch (error) {
     await client.sql`ROLLBACK`;
+    console.error(error);
     return Response.json(
       { error: "Failed to initialize database" },
       { status: 500 }
