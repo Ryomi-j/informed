@@ -7,6 +7,7 @@ import { Button } from "@/lib/ui/button";
 import { RefreshCwIcon, SettingsIcon } from "lucide-react";
 import Link from "next/link";
 import QueryProvider from "@/lib/components/queryProvider";
+import { ROUTES } from "@/lib/constants/routes";
 
 export default async function Home(props: {
   searchParams: Promise<{ category: string }>;
@@ -34,7 +35,7 @@ export default async function Home(props: {
           </QueryProvider>
         </div>
       </Tabs>
-      <Link href="/settings" className="fixed bottom-4 right-10 w-8 h-8">
+      <Link href={ROUTES.KEYWORDS} className="fixed bottom-4 right-10 w-8 h-8">
         <Button>
           <SettingsIcon className="w-4 h-4" />
         </Button>
