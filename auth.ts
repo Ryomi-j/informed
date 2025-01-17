@@ -37,6 +37,7 @@ export const {
 } = NextAuth({
   ...authConfig,
   callbacks: {
+    ...authConfig.callbacks,
     async signIn({ user, account }) {
       if (account?.provider === "google") {
         try {
@@ -65,18 +66,6 @@ export const {
         }
       }
       return true;
-    },
-    async jwt({ token, user, account }) {
-      if (account && user) {
-        return { ...token, provider: account.provider };
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      return {
-        ...session,
-        user: { ...session.user, provider: token.provider },
-      };
     },
   },
   providers: [
