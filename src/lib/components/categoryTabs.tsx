@@ -10,7 +10,6 @@ export function CategoryTabs({
 }: {
   selectedCategory: string;
 }) {
-  console.log(selectedCategory);
   return (
     <ScrollArea className="w-full max-w-screen-xl mx-auto">
       <TabsList className="flex gap-5">
