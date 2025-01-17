@@ -1,4 +1,4 @@
-import { Fragment, Suspense } from "react";
+import { Fragment } from "react";
 import { DEFAULT_CATEGORY } from "@/lib/constants/category";
 import { CategoryTabs } from "@/lib/components/categoryTabs";
 import { TabContent } from "@/lib/components/tabContent";
@@ -6,13 +6,12 @@ import { Tabs } from "@/lib/ui/tabs";
 import { Button } from "@/lib/ui/button";
 import { RefreshCwIcon, SettingsIcon } from "lucide-react";
 import Link from "next/link";
+import QueryProvider from "@/lib/components/queryProvider";
 
 export default async function Home(props: {
   searchParams: Promise<{ category: string }>;
 }) {
   let { category } = await props.searchParams;
-
-  // TODO: (로그인 기능 구현 시) 사용자가 선택한 첫번재 카테고리로 변경
   if (!category) category = Object.keys(DEFAULT_CATEGORY)[0];
 
   return (
@@ -30,9 +29,9 @@ export default async function Home(props: {
             <p>마지막 업데이트: </p>
             <span>5분 전</span>
           </div>
-          <Suspense fallback={<div>Loading...</div>}>
+          <QueryProvider>
             <TabContent category={category} />
-          </Suspense>
+          </QueryProvider>
         </div>
       </Tabs>
       <Link href="/settings" className="fixed bottom-4 right-10 w-8 h-8">
