@@ -24,13 +24,16 @@ export function TabContent() {
         <div className="w-full h-full text-center">검색 결과가 없습니다.</div>
       ) : (
         <div className="grid grid-cols-3 gap-4">
-          {news.map((content: News) => (
-            <NewsCard
-              key={content.position}
-              content={content}
-              keyword={keyword}
-            />
-          ))}
+          {news.map(
+            (content: News) =>
+              content.title && (
+                <NewsCard
+                  key={content.position}
+                  content={content}
+                  keyword={keyword}
+                />
+              )
+          )}
         </div>
       )}
     </Fragment>
