@@ -22,14 +22,6 @@ export default async function Home(props: {
           <KeywordTabs selectedKeyword={keyword} />
         </div>
         <div className="max-w-screen-xl mx-auto w-full">
-          <div className="flex items-center gap-2 w-full pt-2 text-gray-500">
-            <Button>
-              <RefreshCwIcon className="w-4 h-4" />
-              <span>새로고침</span>
-            </Button>
-            <p>마지막 업데이트: </p>
-            <span>5분 전</span>
-          </div>
           <QueryProvider>
             <TabContent />
           </QueryProvider>

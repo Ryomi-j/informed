@@ -5,11 +5,10 @@ import { News } from "../types/news";
 import { useNews } from "../api/news";
 import { Loading } from "./Loading";
 import { useSearchParams } from "next/navigation";
-import { Fragment } from "react";
 
 export function TabContent() {
   const searchParams = useSearchParams();
-  const keyword = searchParams.get("keyword") || ""; // URL에서 keyword 추출
+  const keyword = searchParams.get("keyword") || "";
   let { news, isLoading, error } = useNews(keyword);
 
   if (isLoading) return <Loading />;
@@ -19,7 +18,7 @@ export function TabContent() {
     );
 
   return (
-    <Fragment>
+    <div className="max-w-screen-xl mx-auto w-full mt-4">
       {!news || news.length === 0 ? (
         <div className="w-full h-full text-center">검색 결과가 없습니다.</div>
       ) : (
@@ -36,6 +35,6 @@ export function TabContent() {
           )}
         </div>
       )}
-    </Fragment>
+    </div>
   );
 }
