@@ -2,6 +2,7 @@ class FetchService {
   private baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
   async get<T>(endpoint: string): Promise<T> {
+    console.log("url", `${this.baseUrl}${endpoint}`);
     const response = await fetch(`${this.baseUrl}${endpoint}`);
 
     if (!response.ok) {
