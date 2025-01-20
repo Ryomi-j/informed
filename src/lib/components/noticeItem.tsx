@@ -20,7 +20,7 @@ export default function NoticeItem() {
                     <p className="text-base font-bold">{title}</p>
                     <div className="text-gray-500">{description}</div>
                   </label>
-                  <Switch id={subTitle} />
+                  <Switch id={subTitle} disabled />
                 </div>
               ))}
             </div>

@@ -30,7 +30,7 @@ export default function NotificationForm() {
               </div>
             </div>
           </label>
-          <Switch id="push" />
+          <Switch id="push" disabled />
         </section>
         <NoticeItem />
         <section className="flex flex-col gap-4">
@@ -51,7 +51,7 @@ export default function NotificationForm() {
       </div>
 
       <div className="flex justify-end">
-        <Button type="submit" className="w-fit">
+        <Button type="submit" className="w-fit" disabled>
           저장
         </Button>
       </div>
