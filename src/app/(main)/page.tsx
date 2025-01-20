@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { DEFAULT_CATEGORY } from "@/lib/constants/category";
-import { CategoryTabs } from "@/lib/components/categoryTabs";
+import { DEFAULT_KEYWORD } from "@/lib/constants/keyword";
+import { KeywordTabs } from "@/lib/components/keywordTabs";
 import { TabContent } from "@/lib/components/tabContent";
 import { Tabs } from "@/lib/ui/tabs";
 import { Button } from "@/lib/ui/button";
@@ -10,16 +10,16 @@ import QueryProvider from "@/lib/components/queryProvider";
 import { ROUTES } from "@/lib/constants/routes";
 
 export default async function Home(props: {
-  searchParams: Promise<{ category: string }>;
+  searchParams: Promise<{ keyword: string }>;
 }) {
-  let { category } = await props.searchParams;
-  if (!category) category = Object.keys(DEFAULT_CATEGORY)[0];
+  let { keyword } = await props.searchParams;
+  if (!keyword) keyword = Object.keys(DEFAULT_KEYWORD)[0];
 
   return (
     <Fragment>
-      <Tabs defaultValue={category} className="w-full">
+      <Tabs defaultValue={keyword} className="w-full">
         <div className="w-full bg-white">
-          <CategoryTabs selectedCategory={category} />
+          <KeywordTabs selectedKeyword={keyword} />
         </div>
         <div className="max-w-screen-xl mx-auto w-full">
           <div className="flex items-center gap-2 w-full pt-2 text-gray-500">
@@ -31,7 +31,7 @@ export default async function Home(props: {
             <span>5분 전</span>
           </div>
           <QueryProvider>
-            <TabContent category={category} />
+            <TabContent />
           </QueryProvider>
         </div>
       </Tabs>

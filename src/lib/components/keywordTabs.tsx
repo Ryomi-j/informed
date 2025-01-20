@@ -1,29 +1,29 @@
 import { TabsList, TabsTrigger } from "@radix-ui/react-tabs";
-import { DEFAULT_CATEGORY } from "../constants/category";
+import { DEFAULT_KEYWORD } from "../constants/keyword";
 import Link from "next/link";
 import { clsx } from "clsx";
 import { ScrollArea } from "../ui/scroll-area";
 import { ScrollBar } from "../ui/scroll-area";
 
-export function CategoryTabs({
-  selectedCategory,
+export function KeywordTabs({
+  selectedKeyword,
 }: {
-  selectedCategory: string;
+  selectedKeyword: string;
 }) {
   return (
     <ScrollArea className="w-full max-w-screen-xl mx-auto">
       <TabsList className="flex gap-5">
-        {Object.entries(DEFAULT_CATEGORY).map(([category, value]) => (
+        {Object.entries(DEFAULT_KEYWORD).map(([keyword, value]) => (
           <Link
-            href={`?category=${category}`}
-            key={category}
+            href={`?keyword=${keyword}`}
+            key={keyword}
             className="w-fit min-w-fit"
           >
             <TabsTrigger
-              value={category}
+              value={keyword}
               className={clsx(
                 "w-full pb-2",
-                selectedCategory === category
+                selectedKeyword === keyword
                   ? "text-black border-b-4 border-black"
                   : "text-gray-500"
               )}

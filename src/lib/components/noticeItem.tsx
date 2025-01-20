@@ -6,10 +6,10 @@ import { DropdownMenuSeparator } from "../ui/dropdown-menu";
 export default function NoticeItem() {
   return (
     <Fragment>
-      {NOTICE_TIME_OPTIONS_LIST.map(({ category, content }) => (
-        <Fragment key={category}>
+      {NOTICE_TIME_OPTIONS_LIST.map(({ keyword, content }) => (
+        <Fragment key={keyword}>
           <section className="flex flex-col gap-4">
-            <h4 className="font-bold">{category}</h4>
+            <h4 className="font-bold">{keyword}</h4>
             <div className="flex flex-col gap-4">
               {content.map(({ title, subTitle, description }) => (
                 <div

@@ -1,4 +1,4 @@
-export const DEFAULT_CATEGORY = {
+export const DEFAULT_KEYWORD = {
   technology: "테크놀로지",
   science: "과학",
   health: "건강",

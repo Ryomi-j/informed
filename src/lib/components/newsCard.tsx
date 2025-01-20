@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -13,10 +15,10 @@ import { formatDate } from "../utils/date";
 import { ROUTES } from "../constants/routes";
 
 export function NewsCard({
-  category,
+  keyword,
   content,
 }: {
-  category: string;
+  keyword: string;
   content: News;
 }) {
   return (
@@ -25,7 +27,7 @@ export function NewsCard({
         {content.thumbnail_small ? (
           <Image
             src={content.thumbnail_small}
-            alt={`${category} news item`}
+            alt={`${keyword} news article`}
             width={400}
             height={150}
             className="object-cover overflow-hidden rounded-lg"

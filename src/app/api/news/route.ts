@@ -4,14 +4,14 @@ import { getJson } from "serpapi";
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const category = searchParams.get("category");
+    const keyword = searchParams.get("keyword");
 
     const options = {
       engine: "google_news",
       api_key: process.env.NEXT_PUBLIC_GOOGLE_NEWS_API_KEY,
       gl: "kr",
       hl: "ko",
-      q: category,
+      q: keyword,
     };
 
     const response = await getJson(options);

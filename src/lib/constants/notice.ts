@@ -7,7 +7,7 @@ export const NOTICE_TIME_OPTIONS = {
 
 export const NOTICE_TIME_OPTIONS_LIST = [
   {
-    category: "알림 종류",
+    keyword: "알림 종류",
     content: [
       {
         title: "공지사항",
@@ -27,7 +27,7 @@ export const NOTICE_TIME_OPTIONS_LIST = [
     ],
   },
   {
-    category: "알림 수신 방법", 
+    keyword: "알림 수신 방법", 
     content: [
       {
         title: "이메일",
