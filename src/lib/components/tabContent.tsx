@@ -5,10 +5,11 @@ import { News } from "../types/news";
 import { useNews } from "../api/news";
 import { Loading } from "./Loading";
 import { useSearchParams } from "next/navigation";
+import { DEFAULT_KEYWORD } from "../constants/keyword";
 
 export function TabContent() {
   const searchParams = useSearchParams();
-  const keyword = searchParams.get("keyword") || "";
+  const keyword = searchParams.get("keyword") || Object.keys(DEFAULT_KEYWORD)[0];
   let { news, isLoading, error } = useNews(keyword);
 
   if (isLoading) return <Loading />;
