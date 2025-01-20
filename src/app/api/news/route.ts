@@ -17,6 +17,8 @@ export async function GET(request: Request) {
     const response = await getJson(options);
     return NextResponse.json(response.news_results || []);
   } catch (error) {
+    console.error(error);
+    
     return NextResponse.json(
       { error: "Failed to fetch news" },
       { status: 500 }
