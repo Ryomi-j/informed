@@ -10,10 +10,10 @@ import { DEFAULT_KEYWORD } from "../constants/keyword";
 export function TabContent() {
   const searchParams = useSearchParams();
   const keyword = searchParams.get("keyword") || Object.keys(DEFAULT_KEYWORD)[0];
-  const { news, isLoading, error } = useNews(keyword);
+  const { news, isLoading, error: newsError } = useNews(keyword);
 
   if (isLoading) return <Loading />;
-  if (error)
+  if (newsError)
     return (
       <div className="w-full h-full text-center">에러가 발생했습니다.</div>
     );
