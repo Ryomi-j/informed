@@ -2,7 +2,7 @@
 
 ## 🔗 링크
 
-- [라이브 데모](https://informed-6cfiao0rx-ryomijs-projects.vercel.app/)
+- [라이브 데모](https://informed-lilac.vercel.app/)
 - [프로젝트 관리 (Notion)](https://kaput-wax-a12.notion.site/News-Dashboard-Informed-170f5eea2114802caf67ed6dc4f30b54?pvs=4)
 - [디자인 파일](https://creatie.ai/goto/Gb6htX5b?page_id=M&file=148404487357415&devMode=true)
 
@@ -14,6 +14,12 @@
 - React
 - TypeScript
 
+### 인증
+
+- NextAuth.js v5
+- @auth/core
+- bcryptjs
+
 ### UI 컴포넌트 & 스타일링
 
 - Shadcn/ui
@@ -21,10 +27,26 @@
 - Lucide React
 - clsx
 
+### 상태관리 & 데이터 페칭
+
+- TanStack Query (React Query) v5
+- Zustand
+- SerpAPI (뉴스 데이터)
+
+### 데이터베이스
+
+- Vercel Postgres
+
+### 유틸리티
+
+- dayjs (날짜 처리)
+- zod (스키마 검증)
+
 ### 개발 도구
 
 - ESLint
-- Turbopack
+- TypeScript
+- PostCSS
 
 ### 배포 및 호스팅
 
@@ -33,7 +55,7 @@
 ### 프로젝트 관리
 
 - [Notion](https://notion.so/) - 프로젝트 문서화 및 칸반 보드
-- [Creatie.ai](https://creatie.ai/) - 디자인 협업
+- [Creatie.ai](https://creatie.ai/) - 디자인 툴
 
 ## 🚀 시작하기
 
@@ -70,7 +92,7 @@ npm run build
 
 ## 🌐 배포
 
-이 프로젝트는 Vercel에 배포되어 있으며, main 브랜치에서 자동 배포됩니다. [라이브 데모](https://informed-6cfiao0rx-ryomijs-projects.vercel.app/)에서 최신 버전을 확인할 수 있습니다.
+이 프로젝트는 Vercel에 배포되어 있으며, main 브랜치에서 자동 배포됩니다. [라이브 데모](https://informed-lilac.vercel.app/)에서 최신 버전을 확인할 수 있습니다.
 
 ## 📋 프로젝트 관리
 
