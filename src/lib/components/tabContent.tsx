@@ -10,7 +10,7 @@ import { DEFAULT_KEYWORD } from "../constants/keyword";
 export function TabContent() {
   const searchParams = useSearchParams();
   const keyword = searchParams.get("keyword") || Object.keys(DEFAULT_KEYWORD)[0];
-  let { news, isLoading, error } = useNews(keyword);
+  const { news, isLoading, error } = useNews(keyword);
 
   if (isLoading) return <Loading />;
   if (error)
